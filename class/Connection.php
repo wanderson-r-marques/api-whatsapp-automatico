@@ -21,7 +21,7 @@ class Connection
 
             try {
 
-            self::$conn =  new \PDO($pdoConfig, DB_USER, DB_PASSWORD);
+            self::$conn =  new PDO($pdoConfig, DB_USER, DB_PASSWORD);
             self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           
             return self::$conn;       
