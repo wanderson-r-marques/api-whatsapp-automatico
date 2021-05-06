@@ -20,11 +20,13 @@ if (count($linhas)) {
         $token = $cliente->TOKEN;
 
         $telefone = $message->getTelefone();
-        $nome = $message->getDescricao();
+        $dataHora = $message->getDataHoraEnvio();
+        $nome = urlencode($message->getDescricao());
         $mensagem = urlencode($message->getMensagem());
         $link = $message->getLink();
 
         $url = "https://api.isatendimento.com.br/core/v1/api/sendtext/" . $token . "?celular=" . $telefone . "&nome=" . $nome . "&message=" . $mensagem . "&forcar=0&verify=0";
+       
         $curl = curl_init();
         curl_setopt($curl, CURLOPT_URL, $url);
         curl_setopt($curl, CURLOPT_POST, true);
@@ -33,10 +35,11 @@ if (count($linhas)) {
 
         $retorno =  curl_exec($curl);
         $string = json_decode($retorno, true);
+        print_r($string);
         $msg = $string['Message'];
         $status = $string['Status'];
         curl_close($curl);
-        MessageController::update("STATUS = $status, RETORNO = '$msg'", $linha->CUR_MENSAGEM);
+        MessageController::update("STATUS = $status, RETORNO = '$msg', DATA_HORA_ENVIO = '$dataHora'", $linha->CUR_MENSAGEM);
         echo 'Mensagem: ' . $nome . ' | ' . $telefone . ' | ' . $status . '-' . $msg . '<br>';
         echo 'URL: '.$url.'<hr> ';
         sleep(10);
