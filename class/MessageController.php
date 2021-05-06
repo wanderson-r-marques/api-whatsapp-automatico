@@ -6,4 +6,10 @@ class MessageController
     {
        return MessageModel::allNotSend();        
     }
+
+    public static function update($atributos,$id)
+    {
+       return MessageModel::update($atributos,$id);        
+    }
 }
+

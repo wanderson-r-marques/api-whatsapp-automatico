@@ -8,6 +8,8 @@ class Message
     private $dataHoraEnvio;
     private $retorno;
     private $link;
+    private $status;
+    
 
     /**
      * Get the value of link
@@ -131,6 +133,24 @@ class Message
     public function setDescricao($descricao): self
     {
         $this->descricao = $descricao;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of status
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * Set the value of status
+     */
+    public function setStatus($status) : self
+    {
+        $this->status = $status;
 
         return $this;
     }

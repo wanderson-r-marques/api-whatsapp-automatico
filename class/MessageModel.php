@@ -1,10 +1,11 @@
 <?php
-require 'Connection.php';
-class MessageModel
-{  
+
+class MessageModel extends Connection
+{    
+    
     // Retorna todas as mensagens
     public static function all() {
-        $con = Connection::connect();      
+        $con = self::$conn;      
         $smtp = $con->prepare('SELECT * FROM CUR_MENSAGEM');
         $smtp->execute();
         return $smtp->fetchAll(PDO::FETCH_OBJ);
@@ -12,14 +13,21 @@ class MessageModel
 
     // Retorna mensagens não enviadas
     public static function allNotSend() {
-        $con = Connection::connect();      
-        $smtp = $con->prepare("SELECT * FROM CUR_MENSAGEM WHERE ENVIADO = :ENVIADO");
-        $enviado = 'N';
-        $smtp->bindParam(':ENVIADO',$enviado,PDO::PARAM_STR);
+        $con = self::$conn;    
+        $query = "SELECT * FROM CUR_MENSAGEM WHERE STATUS IS NULL";        
+        $smtp = $con->prepare($query); 
         $smtp->execute();
         return $smtp->fetchAll(PDO::FETCH_OBJ);
     }
    
+    // Retorna mensagens não enviadas
+    public static function update($atributos,$id) {
+        $con = self::$conn;    
+        echo $query = "UPDATE CUR_MENSAGEM SET ".$atributos." WHERE CUR_MENSAGEM = :ID";        
+        $smtp = $con->prepare($query); 
+        $smtp->bindParam(':ID',$id,PDO::PARAM_INT);
+        return $smtp->execute();         
+    }
 }
 
 

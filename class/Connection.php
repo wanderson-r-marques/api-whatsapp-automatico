@@ -2,7 +2,7 @@
 
 class Connection
 {
-    private static $conn;
+    protected static $conn;
 
     public static function connect()
     {
