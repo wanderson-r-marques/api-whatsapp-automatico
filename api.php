@@ -37,10 +37,11 @@ if (count($linhas)) {
         $status = $string['Status'];
         curl_close($curl);
         MessageController::update("STATUS = $status, RETORNO = '$msg'", $linha->CUR_MENSAGEM);
-        echo 'Mensagem: ' . $nome . ' | ' . $telefone . ' | ' . $status . '-' . $linha->CUR_MENSAGEM . '<br>';
-        sleep(3);
+        echo 'Mensagem: ' . $nome . ' | ' . $telefone . ' | ' . $status . '-' . $msg . '<br>';
+        echo 'URL: '.$url.'<hr> ';
+        sleep(10);
     }
-    echo '<hr> URL: ' . $url;
+    
 } else {
     echo 'Não há cadastros para enviar a mensagem';
 }

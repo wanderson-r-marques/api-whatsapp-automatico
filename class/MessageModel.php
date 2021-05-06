@@ -23,7 +23,7 @@ class MessageModel extends Connection
     // Retorna mensagens não enviadas
     public static function update($atributos,$id) {
         $con = self::$conn;    
-        echo $query = "UPDATE CUR_MENSAGEM SET ".$atributos." WHERE CUR_MENSAGEM = :ID";        
+        $query = "UPDATE CUR_MENSAGEM SET ".$atributos." WHERE CUR_MENSAGEM = :ID";        
         $smtp = $con->prepare($query); 
         $smtp->bindParam(':ID',$id,PDO::PARAM_INT);
         return $smtp->execute();         
