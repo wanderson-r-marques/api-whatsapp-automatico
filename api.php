@@ -9,6 +9,8 @@ $linhas = MessageController::allNotSend();
 
 if (count($linhas)) {
     foreach ($linhas as $linha) {
+        set_time_limit(300);
+
         $message = new Message();
         $message->setDescricao($linha->DESCRICAO);
         $message->setTelefone($linha->TELEFONE);
@@ -24,7 +26,7 @@ if (count($linhas)) {
         $nome = urlencode($message->getDescricao());
 
         if ($linha->TIPO_ENVIO == 1) {
-            $url = "https://api.isatendimento.com.br/core/v1/api/sendtext/" . $token . "?celular=" . $telefone . "&nome=" . $nome . "&message=" . $mensagem . "&forcar=0&verify=0";
+            $url = "https://api.isatendimento.com.br/core/v1/api/sendtext/" . $token . "?celular=" . $telefone . "&nome=" . $nome . "&message=" . $mensagem . "&forcar=1&verify=0";
         } else if ($linha->TIPO_ENVIO == 2) {
             $link = $message->getLink();
             $ext = '.' . pathinfo($link, PATHINFO_EXTENSION);
