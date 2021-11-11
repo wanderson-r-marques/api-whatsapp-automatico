@@ -6,7 +6,7 @@ class TokenModel extends Connection
     // Retorna todas as mensagens
     public static function all() {
         $con = self::$conn;        
-        $smtp = $con->prepare('SELECT * FROM CUR_TOKEN');
+        $smtp = $con->prepare('SELECT * FROM cur_token');
         $smtp->execute();
         return $smtp->fetchAll(PDO::FETCH_OBJ);
     }
@@ -15,7 +15,7 @@ class TokenModel extends Connection
     public static function findById($id) {
         $con = self::$conn;   
            
-        $query = "SELECT * FROM CUR_TOKEN WHERE CUR_TOKEN = :ID";
+        $query = "SELECT * FROM cur_token WHERE cur_token = :ID";
         $smtp = $con->prepare($query);        
         $smtp->bindParam(':ID',$id,PDO::PARAM_INT);
         $smtp->execute();

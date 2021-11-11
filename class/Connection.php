@@ -8,20 +8,18 @@ class Connection
     {
 
 
-        if (is_null(self::$conn)) {
+        if (is_null(self::$conn)) 
+        {
 
-            define('DB_HOST', "localhost");
-            define('DB_USER', "sa");
-            define('DB_PASSWORD', "infor2525@");
-            define('DB_NAME', "PBS_FB_DADOS");
-            define('DB_DRIVER', "sqlsrv");
+            define("DB_HOST", "localhost");
+            define("DB_USER", "infor407_is");
+            define("DB_PASS", "infor2525@");
+            define("DB_NAME", "infor407_mensageria");
 
-            $pdoConfig  = DB_DRIVER . ":" . "Server=" . DB_HOST . ";";
-            $pdoConfig .= "Database=" . DB_NAME . ";";
+            try 
+            {
 
-            try {
-
-            self::$conn =  new PDO($pdoConfig, DB_USER, DB_PASSWORD);
+            self::$conn =  new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS,array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
             self::$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
           
             return self::$conn;       
@@ -33,4 +31,3 @@ class Connection
         }
     }
 }
-

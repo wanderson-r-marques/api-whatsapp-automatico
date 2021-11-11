@@ -16,7 +16,7 @@ class Token{
     /**
      * Set the value of token
      */
-    public function setToken($token) : self
+    public function setToken($token)
     {
         $this->token = $token;
 
@@ -34,7 +34,7 @@ class Token{
     /**
      * Set the value of numero_telefone
      */
-    public function setNumeroTelefone($numero_telefone) : self
+    public function setNumeroTelefone($numero_telefone)
     {
         $this->numero_telefone = $numero_telefone;
 
@@ -52,7 +52,7 @@ class Token{
     /**
      * Set the value of descricao
      */
-    public function setDescricao($descricao) : self
+    public function setDescricao($descricao)
     {
         $this->descricao = $descricao;
 
@@ -70,7 +70,7 @@ class Token{
     /**
      * Set the value of id
      */
-    public function setId($id) : self
+    public function setId($id)
     {
         $this->id = $id;
 

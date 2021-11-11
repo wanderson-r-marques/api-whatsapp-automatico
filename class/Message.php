@@ -22,7 +22,7 @@ class Message
     /**
      * Set the value of link
      */
-    public function setLink($link): self
+    public function setLink($link)
     {
         $this->link = $link;
 
@@ -40,7 +40,7 @@ class Message
     /**
      * Set the value of retorno
      */
-    public function setRetorno($retorno): self
+    public function setRetorno($retorno)
     {
         $this->retorno = $retorno;
 
@@ -58,7 +58,7 @@ class Message
     /**
      * Set the value of dataHoraEnvio
      */
-    public function setDataHoraEnvio($dataHoraEnvio): self
+    public function setDataHoraEnvio($dataHoraEnvio)
     {
         $this->dataHoraEnvio = $dataHoraEnvio;
 
@@ -76,7 +76,7 @@ class Message
     /**
      * Set the value of enviado
      */
-    public function setEnviado($enviado): self
+    public function setEnviado($enviado)
     {
         $this->enviado = $enviado;
 
@@ -94,7 +94,7 @@ class Message
     /**
      * Set the value of mensagem
      */
-    public function setMensagem($mensagem): self
+    public function setMensagem($mensagem)
     {
         $this->mensagem = $mensagem;
 
@@ -112,7 +112,7 @@ class Message
     /**
      * Set the value of telefone
      */
-    public function setTelefone($telefone): self
+    public function setTelefone($telefone)
     {
         $this->telefone = $telefone;
 
@@ -130,7 +130,7 @@ class Message
     /**
      * Set the value of descricao
      */
-    public function setDescricao($descricao): self
+    public function setDescricao($descricao)
     {
         $this->descricao = $descricao;
 
@@ -148,7 +148,7 @@ class Message
     /**
      * Set the value of status
      */
-    public function setStatus($status) : self
+    public function setStatus($status)
     {
         $this->status = $status;
 
