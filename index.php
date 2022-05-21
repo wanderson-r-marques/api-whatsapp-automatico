@@ -59,7 +59,7 @@ if(isset($_POST['telefone']) && $_POST['telefone'] != '')
         <div class="mx-auto col-md-10 p-4">
           <h1 class="text-light">Mensageria</h1>
           <p class="mb-4 lead text-light">Formulário de mensagens para Whatsapp</p>
-          <?= $msg ?>
+          <?= $msg ?? '' ?>
           <form action="index.php" method="post" enctype="multipart/form">
             <div class="form-row">
               <div class="form-group col-md-6"> <input name="descricao" required type="text" class="form-control" id="form22" placeholder="Descrição*"> </div>
